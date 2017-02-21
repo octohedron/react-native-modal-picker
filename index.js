@@ -78,11 +78,12 @@ export default class ModalPicker extends BaseComponent {
         this.setState({cancelText: this.props.cancelText});
     }
 
-    componentWillReceiveProps(nextProps) {
-      if (nextProps.initValue != this.props.initValue) {
-        this.setState({selected: nextProps.initValue});
-      }
-    }
+    // This is broken. Fix it or remove it.
+    // componentWillReceiveProps(nextProps) {
+    //   if (nextProps.initValue != this.props.initValue) {
+    //     this.setState({selected: nextProps.initValue});
+    //   }
+    // }
 
     onChange(item) {
         this.props.onChange(item);
