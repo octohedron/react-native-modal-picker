@@ -78,12 +78,11 @@ export default class ModalPicker extends BaseComponent {
         this.setState({cancelText: this.props.cancelText});
     }
 
-    // This is broken. Fix it or remove it.
-    // componentWillReceiveProps(nextProps) {
-    //   if (nextProps.initValue != this.props.initValue) {
-    //     this.setState({selected: nextProps.initValue});
-    //   }
-    // }
+    componentWillReceiveProps(nextProps) {
+      if (nextProps.initValue !== this.props.initValue) {
+        this.setState({selected: nextProps.initValue});
+      }
+    }
 
     onChange(item) {
         this.props.onChange(item);
@@ -132,7 +131,7 @@ export default class ModalPicker extends BaseComponent {
         return (
             <View style={[styles.overlayStyle, this.props.overlayStyle]} key={'modalPicker'+(componentIndex++)}>
                 <View style={styles.optionContainer}>
-                     <ScrollView keyboardShouldPersistTaps="always">
+                     <ScrollView keyboardShouldPersistTaps="never">
                         <View style={{paddingHorizontal:10}}>
                             {options}
                         </View>
